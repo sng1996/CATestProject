@@ -1,6 +1,6 @@
 # The Composable Architecture Test App
 
-This app is my experiment with [the Composable Architecture by Point-Free] (https://github.com/pointfreeco/swift-composable-architecture/).
+This app is my experiment with [the Composable Architecture by Point-Free](https://github.com/pointfreeco/swift-composable-architecture/).
 
 ## Already tried using
 
