@@ -24,6 +24,7 @@ struct CategoriesView: View {
     }
     
     let store: Store<AppState, AppAction>
+    let searchBar = SearchBar()
     
     var onAppearAction: ((ViewStore<ViewState, ViewAction>) -> Void)? = { viewStore in
         viewStore.send(.viewAppeared)
@@ -40,10 +41,11 @@ struct CategoriesView: View {
                     if viewStore.activityIndicatorEnabled {
                         ActivityIndicator()
                     } else {
-                        CategoriesListView(self.store)
+                        CategoriesListView(self.store, searchBar: self.searchBar)
                     }
                 }
                 .navigationBarTitle("Партнеры")
+                .add(self.searchBar)
             }
             .onAppear {
                 self.onAppearAction?(viewStore)
@@ -64,15 +66,20 @@ struct CategoriesView: View {
 
 struct CategoriesListView: View {
     let store: Store<AppState, AppAction>
+    @ObservedObject var searchBar: SearchBar
     
-    init(_ store: Store<AppState, AppAction>) {
+    init(_ store: Store<AppState, AppAction>, searchBar: SearchBar) {
         self.store = store
+        self.searchBar = searchBar
     }
     
     var body: some View {
         WithViewStore(store.scope(state: { $0.viewState }, action: AppAction.viewAction)) { viewStore in
             List {
-                ForEach(viewStore.categories) { category in
+                ForEach(viewStore.categories.filter {
+                    self.searchBar.text.isEmpty ||
+                    $0.name.localizedStandardContains(self.searchBar.text)
+                }) { category in
                     NavigationLink(
                         destination: CurrentResolver.resolve(PartnersView.self),
                         tag: category,

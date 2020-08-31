@@ -14,9 +14,7 @@ import XCTest
 class CATestProjectTests: XCTestCase {
     
     func testCategoriesLoad() {
-        let expected = [
-            Category(id: "1", name: "Популярные", title: "popularpartners"),
-        ]
+        let expected = [Category(id: "1", name: "Популярные", title: "popularpartners")]
         
         var mock = PartnersClient.mock
         mock.categories = { Effect(value: expected) }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A02AEA624F62AD0002C448C /* PhotosClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02AEA524F62AD0002C448C /* PhotosClient.swift */; };
+		2A02AEAA24F64334002C448C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02AEA824F64334002C448C /* SearchBar.swift */; };
+		2A02AEAB24F64334002C448C /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02AEA924F64334002C448C /* ViewControllerResolver.swift */; };
 		2A132D8F24C544D500FA21F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A132D8E24C544D500FA21F7 /* AppDelegate.swift */; };
 		2A132D9124C544D500FA21F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A132D9024C544D500FA21F7 /* SceneDelegate.swift */; };
 		2A132D9524C544DA00FA21F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A132D9424C544DA00FA21F7 /* Assets.xcassets */; };
@@ -50,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A02AEA524F62AD0002C448C /* PhotosClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosClient.swift; sourceTree = "<group>"; };
+		2A02AEA824F64334002C448C /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		2A02AEA924F64334002C448C /* ViewControllerResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
 		2A132D8B24C544D500FA21F7 /* CATestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A132D8E24C544D500FA21F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A132D9024C544D500FA21F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A02AEA424F61AB9002C448C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2A132D8E24C544D500FA21F7 /* AppDelegate.swift */,
+				2A132D9024C544D500FA21F7 /* SceneDelegate.swift */,
+				2A42768E24DBCE5B001D088D /* ActivityIndicator.swift */,
+				2A42769024DBCE8B001D088D /* UIViewRepresented.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2A02AEA724F64308002C448C /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				2A02AEA824F64334002C448C /* SearchBar.swift */,
+				2A02AEA924F64334002C448C /* ViewControllerResolver.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		2A132D8224C544D400FA21F7 = {
 			isa = PBXGroup;
 			children = (
@@ -132,14 +158,12 @@
 				2A42769524DCCE05001D088D /* Clients */,
 				2A42768D24DBB259001D088D /* Cores */,
 				2A42769624DCCE29001D088D /* Views */,
-				2A132D8E24C544D500FA21F7 /* AppDelegate.swift */,
-				2A132D9024C544D500FA21F7 /* SceneDelegate.swift */,
+				2A02AEA424F61AB9002C448C /* Helpers */,
+				2A02AEA724F64308002C448C /* SearchBar */,
 				2A132D9424C544DA00FA21F7 /* Assets.xcassets */,
 				2A132D9924C544DA00FA21F7 /* LaunchScreen.storyboard */,
 				2A132D9C24C544DA00FA21F7 /* Info.plist */,
 				2A132D9624C544DA00FA21F7 /* Preview Content */,
-				2A42768E24DBCE5B001D088D /* ActivityIndicator.swift */,
-				2A42769024DBCE8B001D088D /* UIViewRepresented.swift */,
 			);
 			path = CATestProject;
 			sourceTree = "<group>";
@@ -185,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				2A132DC524C55E4800FA21F7 /* PartnersClient.swift */,
+				2A02AEA524F62AD0002C448C /* PhotosClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -374,11 +399,14 @@
 				2A42769A24DCD122001D088D /* CategoriesAssembly.swift in Sources */,
 				2A7B1DFD24C6778C00D126C7 /* PartnersView.swift in Sources */,
 				2A42769124DBCE8B001D088D /* UIViewRepresented.swift in Sources */,
+				2A02AEAA24F64334002C448C /* SearchBar.swift in Sources */,
 				2A7B1E0124C67BC400D126C7 /* PartnersCore.swift in Sources */,
 				2A132DC624C55E4800FA21F7 /* PartnersClient.swift in Sources */,
 				2A132D9124C544D500FA21F7 /* SceneDelegate.swift in Sources */,
 				2A42768F24DBCE5B001D088D /* ActivityIndicator.swift in Sources */,
 				2A7B1DFB24C6744600D126C7 /* AppView.swift in Sources */,
+				2A02AEA624F62AD0002C448C /* PhotosClient.swift in Sources */,
+				2A02AEAB24F64334002C448C /* ViewControllerResolver.swift in Sources */,
 				2A42769824DCCE82001D088D /* AppAssembly.swift in Sources */,
 				2A7B1DF524C665C000D126C7 /* AppCore.swift in Sources */,
 				2A42769C24DCD197001D088D /* PartnersAssembly.swift in Sources */,

@@ -14,6 +14,25 @@ struct CategoriesState: Equatable {
     var responseWithError = false
 }
 
+//enum State {
+//    case loading
+//    //    categoriesRequestInFlight = true
+//    //    responseWithError = false
+//    //    categories = []
+//    case success(Data)
+//    //    categoriesRequestInFlight = false
+//    //    responseWithError = false
+//    //    categories = data
+//    case error
+//    //    categoriesRequestInFlight = false
+//    //    responseWithError = true
+//    //    categories = []
+//    case initial
+//    //    categoriesRequestInFlight = false
+//    //    responseWithError = false
+//    //    categories = []
+//}
+
 enum CategoriesAction: Equatable {
     case loadTriggered
     case response(Result<[Category], PartnersClient.Failure>)
@@ -36,6 +55,28 @@ let categoriesReducer = Reducer<CategoriesState, CategoriesAction, CategoriesEnv
             .catchToEffect()
             .map(CategoriesAction.response)
             .cancellable(id: CategoryId(), cancelInFlight: true)
+        
+    case .response(.success(let response)):
+        state.categories = response
+        state.categoriesRequestInFlight = false
+        return .none
+        
+    case .response(.failure):
+        state.categoriesRequestInFlight = false
+        state.responseWithError = true
+        return .none
+        
+    case .errorMessageViewed:
+        state.responseWithError = false
+        return .none
+    }
+}
+
+let categoriesReducerMock = Reducer<CategoriesState, CategoriesAction, CategoriesEnvironment> { state, action, environment in
+    switch action {
+    case .loadTriggered:
+        state.categoriesRequestInFlight = true
+        return .none
         
     case .response(.success(let response)):
         state.categories = response

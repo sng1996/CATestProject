@@ -47,6 +47,29 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
   )
 )
 
+let appReducerMock = Reducer<AppState, AppAction, AppEnvironment>.combine(
+  categoriesReducerMock.pullback(
+    state: \.categoriesState,
+    action: /AppAction.categories,
+    environment: {
+      CategoriesEnvironment(
+        partnersClient: $0.networkClient.partnersClient,
+        mainQueue: $0.mainQueue
+      )
+    }
+  ),
+  partnersReducerMock.pullback(
+    state: \.partnersState,
+    action: /AppAction.partners,
+    environment: {
+      PartnersEnvironment(
+        partnersClient: $0.networkClient.partnersClient,
+        mainQueue: $0.mainQueue
+      )
+    }
+  )
+)
+
 struct NetworkClient {
   var partnersClient: PartnersClient
 }

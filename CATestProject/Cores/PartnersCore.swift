@@ -56,3 +56,29 @@ let partnersReducer = Reducer<PartnersState, PartnersAction, PartnersEnvironment
     return .none
   }
 }
+
+let partnersReducerMock = Reducer<PartnersState, PartnersAction, PartnersEnvironment> { state, action, environment in
+  switch action {
+  case .loadTriggered:
+    return .none
+
+  case .response(.success(let response)):
+    state.partners = response
+    return .none
+
+  case .response(.failure):
+    return .none
+    
+  case .cleanDataTriggered:
+    state.partners = []
+    return .none
+    
+  case .categorySelected(.some(let category)):
+    state.currentCategory = category
+    return .none
+    
+  case .categorySelected(.none):
+    state.currentCategory = nil
+    return .none
+  }
+}

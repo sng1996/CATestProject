@@ -10,11 +10,11 @@ import ComposableArchitecture
 import Swinject
 
 final class CategoriesAssembly: Assembly {
-
+    
     func assemble(container: Container) {
         container.register(CategoriesView.self) { r in
-          let store = r.resolve(Store<AppState, AppAction>.self)!
-          return CategoriesView(store)
+            let store = r.resolve(Store<AppState, AppAction>.self)!
+            return CategoriesView(store)
         }
     }
 }
